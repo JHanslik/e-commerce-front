@@ -5,8 +5,6 @@ import Layout from "../components/Layout";
 
 const Order = () => {
     const [orders, setOrders] = useState([]);
-    const [basketProduct, setBaketProduct] = useState([]);
-    const [favorite, setFavorites] = useState([]);
     const { id } = useParams();
     const [countArticles, setCountArticles] = useState(0);
 
