@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { getArticle } from "../api/articles";
+import Grid from "../components/Grid";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
@@ -16,9 +17,11 @@ const Home = () => {
 
   return (
     <>
-      {articles.map((article) => {
-        return <Card article={article} />;
-      })}
+      <Grid>
+        {articles.map((article) => {
+          return <Card article={article} />;
+        })}
+      </Grid>
     </>
   );
 };
