@@ -16,6 +16,7 @@ const Home = () => {
 
   return (
     <>
+      <h1>Articles</h1>
       {articles.map((article) => {
         return <Card article={article} />;
       })}
