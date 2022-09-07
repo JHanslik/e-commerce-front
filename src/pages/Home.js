@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
+import { getArticle } from "../api/articles";
 import Grid from "../components/Grid"
+
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
@@ -10,11 +12,10 @@ const Home = () => {
   }, []);
 
   const fetchArticle = async () => {
-    const request = await fetch(`http://localhost:5000/products`);
-    const response = await request.json();
-    setArticles(response);
+    const data = await getArticle();
+    setArticles(data);
   };
-  console.log(articles);
+
   return (
     <>
       <Grid>
