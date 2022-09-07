@@ -49,7 +49,7 @@ const Card = ({ article }) => {
                     {article.description}
                 </p>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    {article.price}
+                    {article.price / 100} $
                 </p>
 
                 <div className="flex gap-10 justify-between">

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { getOneArticle } from "../api/articles";
+import ProductArticle from "../components/ProductArticle";
 
 const Product = () => {
   const [product, setProduct] = useState([]);
@@ -15,7 +16,11 @@ const Product = () => {
     setProduct(data);
   };
   console.log(product);
-  return <>ergeeq</>;
+  return (
+    <>
+      <ProductArticle product={product}/>
+    </>
+  )
 };
 
 export default Product;
