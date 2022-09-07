@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Card from "../components/Card";
+import { getArticle } from "../api/articles";
 
 const Home = () => {
-  return <div>test</div>;
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    fetchArticle();
+  }, []);
+
+  const fetchArticle = async () => {
+    const data = await getArticle();
+    setArticles(data);
+  };
+
+  return (
+    <>
+      {articles.map((article) => {
+        return <Card article={article} />;
+      })}
+    </>
+  );
 };
 
 export default Home;
