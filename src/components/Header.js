@@ -1,6 +1,13 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
+    const [hidden, setHidden] = useState(true);
+
+    const handleHiddenClick = () => {
+        setHidden(!hidden);
+    };
+
     return (
         <nav className="p-3 bg-gray-50 rounded border-gray-200 dark:bg-gray-800 dark:border-gray-700">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
@@ -11,7 +18,7 @@ const Header = () => {
                         alt="Flowbite Logo"
                     />
                     <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-                        Flowbite
+                        E-commerce
                     </span>
                 </a>
                 <button
@@ -20,6 +27,7 @@ const Header = () => {
                     className="inline-flex justify-center items-center ml-3 text-gray-400 rounded-lg md:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:text-gray-400 dark:hover:text-white dark:focus:ring-gray-500"
                     aria-controls="navbar-solid-bg"
                     aria-expanded="false"
+                    onClick={handleHiddenClick}
                 >
                     <span className="sr-only">Open main menu</span>
                     <svg
@@ -37,42 +45,36 @@ const Header = () => {
                     </svg>
                 </button>
                 <div
-                    className="hidden w-full md:block md:w-auto"
+                    className={`${
+                        hidden && "hidden"
+                    } w-full md:block md:w-auto`}
                     id="navbar-solid-bg"
                 >
                     <ul className="flex flex-col mt-4 bg-gray-50 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
-                        <li>
-                            <a
-                                href="#"
+                        <li onClick={handleHiddenClick}>
+                            <NavLink
+                                to={"/"}
                                 className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
                                 aria-current="page"
                             >
                                 Home
-                            </a>
+                            </NavLink>
                         </li>
-                        <li>
-                            <a
-                                href="#"
+                        <li onClick={handleHiddenClick}>
+                            <NavLink
+                                to={"/categories"}
                                 className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                             >
-                                Services
-                            </a>
+                                Categories
+                            </NavLink>
                         </li>
-                        <li>
-                            <a
-                                href="#"
+                        <li onClick={handleHiddenClick}>
+                            <NavLink
+                                to={"/orders"}
                                 className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                             >
-                                Pricing
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                            >
-                                Contact
-                            </a>
+                                Basket
+                            </NavLink>
                         </li>
                     </ul>
                 </div>
