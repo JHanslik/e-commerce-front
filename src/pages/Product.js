@@ -6,20 +6,28 @@ import Layout from "../components/Layout";
 
 const Product = () => {
     const [product, setProduct] = useState([]);
+    const [countArticles, setCountArticles] = useState(0);
 
     const { id } = useParams();
 
     useEffect(() => {
         fetchOneArticle();
+        fetchProducts();
     }, []);
 
     const fetchOneArticle = async () => {
         const data = await getOneArticle(id);
         setProduct(data);
     };
-    console.log(product);
+
+    const fetchProducts = async () => {
+        let ids = localStorage.getItem("basketProducts");
+        let basketProducts = JSON.parse(ids);
+        setCountArticles(basketProducts.length);
+    };
+
     return (
-        <Layout>
+        <Layout countArticles={countArticles}>
             <ProductArticle product={product} />
         </Layout>
     );

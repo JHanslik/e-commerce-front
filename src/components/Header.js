@@ -14,7 +14,7 @@ const Header = ({ countArticles }) => {
     };
 
     return (
-        <nav className="p-3 bg-gray-50 rounded border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <nav className="p-3 bg-gray-800 border-gray-700">
             <div className="container max-w-[1080px] flex flex-wrap justify-between items-center mx-auto">
                 <NavLink to={"/"} className="flex items-center">
                     <img
@@ -22,7 +22,7 @@ const Header = ({ countArticles }) => {
                         className="mr-3 h-6 sm:h-10"
                         alt="Flowbite Logo"
                     />
-                    <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+                    <span className="self-center text-xl font-semibold whitespace-nowrap text-white">
                         E-commerce
                     </span>
                 </NavLink>
@@ -55,11 +55,11 @@ const Header = ({ countArticles }) => {
                     } w-full md:block md:w-auto`}
                     id="navbar-solid-bg"
                 >
-                    <ul className="flex flex-col mt-4 bg-gray-50 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+                    <ul className="flex flex-col mt-4  rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  bg-gray-800  border-gray-700">
                         <li onClick={handleHiddenClick} className="mx-auto">
                             <NavLink
                                 to={"/"}
-                                className="link block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                                className="link block py-2 pr-4 pl-3  rounded   md:border-0  md:p-0 text-gray-400 md:hover:text-white hover:bg-transparent hover:text-white "
                                 aria-current="page"
                             >
                                 Home
@@ -68,7 +68,7 @@ const Header = ({ countArticles }) => {
                         <li onClick={handleHiddenClick} className="mx-auto">
                             <NavLink
                                 to={"/categories"}
-                                className="link block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                                className="link block py-2 pr-4 pl-3  rounded   md:border-0  md:p-0 text-gray-400 md:hover:text-white hover:bg-transparent hover:text-white "
                             >
                                 Categories
                             </NavLink>
@@ -76,7 +76,7 @@ const Header = ({ countArticles }) => {
                         <li onClick={handleHiddenClick} className="mx-auto">
                             <NavLink
                                 to={"/orders"}
-                                className="link relative block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                                className="link relative block py-2 pr-4 pl-3  rounded   md:border-0  md:p-0 text-gray-400 md:hover:text-white hover:bg-transparent hover:text-white "
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -94,10 +94,10 @@ const Header = ({ countArticles }) => {
                                 </svg>
                                 {numberOfProducts > 0 && (
                                     <>
-                                        <span class="sr-only">
+                                        <span className="sr-only">
                                             Notifications
                                         </span>
-                                        <div class="inline-flex absolute -top-2 -right-2 justify-center items-center w-6 h-6 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-white dark:border-gray-900">
+                                        <div className="inline-flex absolute -top-2 -right-2 justify-center items-center w-6 h-6 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-gray-900">
                                             {numberOfProducts}
                                         </div>
                                     </>

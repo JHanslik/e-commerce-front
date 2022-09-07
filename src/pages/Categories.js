@@ -25,13 +25,17 @@ const Categories = () => {
         const data = await getCategories();
         setCategory(data);
     };
-    console.log(category);
 
     return (
         <Layout countArticles={countArticles}>
             <Grid>
                 {category.map((category) => {
-                    return <CategoryCards category={category} />;
+                    return (
+                        <CategoryCards
+                            key={category.name}
+                            category={category}
+                        />
+                    );
                 })}
             </Grid>
         </Layout>

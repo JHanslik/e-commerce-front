@@ -4,7 +4,7 @@ import { getArticle } from "../api/articles";
 import Grid from "../components/Grid";
 import Layout from "../components/Layout";
 
-const Home = ({}) => {
+const Home = () => {
     const [articles, setArticles] = useState([]);
     const [countArticles, setCountArticles] = useState(0);
 
@@ -30,6 +30,7 @@ const Home = ({}) => {
                 {articles.map((article) => {
                     return (
                         <Card
+                            key={article.name}
                             article={article}
                             setCountArticles={setCountArticles}
                         />
