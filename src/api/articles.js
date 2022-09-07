@@ -3,4 +3,5 @@ const getArticle = async () => {
   const response = await request.json();
   return response;
 };
+
 export { getArticle };
