@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { getOrders, getOrdersIds } from "../api/order";
-import { useParams } from "react-router-dom";
+import OrderCard from "../components/OrderCard";
 
 const Order = () => {
-    const [orders, setOrders] = useState([]);
-    const [basketProduct, setBaketProduct] = useState([]);
-    const [favorite, setFavorites] = useState([]);
-    const { id } = useParams();
+  const [orders, setOrders] = useState([]);
 
-    useEffect(() => {
-        fetchOrders();
-    }, []);
+  useEffect(() => {
+    fetchOrders();
+  }, []);
 
-    const fetchOrders = async () => {
-        const data = await getOrders();
-        setOrders(data);
-    };
+  const fetchOrders = async () => {
+    const data = await getOrders();
+    setOrders(data);
+  };
+  console.log(orders);
 
-    // ******************************
+  // ******************************
 
-    return <div></div>;
+  return (
+    <section>
+      {orders.map((order) => {
+        return <OrderCard order={order} />;
+      })}
+    </section>
+  );
 };
 
 export default Order;
