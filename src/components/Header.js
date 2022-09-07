@@ -1,22 +1,24 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { getOrders } from "../api/order";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
     const [hidden, setHidden] = useState(true);
-    const [numberOfProducts, setNumberOfProducts] = useState(10);
+    const [numberOfProducts, setNumberOfProducts] = useState(0);
+
+    useEffect(() => {
+        fetchProducts();
+        // eslint-disable-next-line
+    }, []);
 
     const handleHiddenClick = () => {
         setHidden(!hidden);
     };
 
-    const orderUpdate = () => {
-        setNumberOfProducts(getOrders.length());
+    const fetchProducts = async () => {
+        let ids = localStorage.getItem("basketProducts");
+        let basketProducts = JSON.parse(ids);
+        setNumberOfProducts(basketProducts.length);
     };
-
-    // useEffect(() => {
-    //     orderUpdate();
-    // });
 
     return (
         <nav className="p-3 bg-gray-50 rounded border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -97,10 +99,16 @@ const Header = () => {
                                         d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                                     />
                                 </svg>
-                                <span class="sr-only">Notifications</span>
-                                <div class="inline-flex absolute -top-2 -right-2 justify-center items-center w-6 h-6 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-white dark:border-gray-900">
-                                    {numberOfProducts}
-                                </div>
+                                {numberOfProducts > 0 && (
+                                    <>
+                                        <span class="sr-only">
+                                            Notifications
+                                        </span>
+                                        <div class="inline-flex absolute -top-2 -right-2 justify-center items-center w-6 h-6 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-white dark:border-gray-900">
+                                            {numberOfProducts}
+                                        </div>
+                                    </>
+                                )}
                             </NavLink>
                         </li>
                     </ul>
