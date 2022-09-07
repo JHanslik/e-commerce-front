@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getCategories } from "../api/categories";
+
+import CategoryCards from "../components/CategoryCards";
+
+import Grid from "../components/Grid";
+
 const Categories = () => {
   const [category, setCategory] = useState([]);
 
@@ -12,7 +17,18 @@ const Categories = () => {
     setCategory(data);
   };
   console.log(category);
-  return <div>Category</div>;
+
+  return (
+    <>
+      <Grid>
+        {category.map((category) => {
+          return <CategoryCards category={category} />;
+        })}
+      </Grid>
+    </>
+  );
+
+
 };
 
 export default Categories;

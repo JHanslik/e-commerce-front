@@ -3,5 +3,10 @@ const getOrders = async () => {
   const response = await request.json();
   return response;
 };
+const getOrdersIds = async (id) => {
+  const request = await fetch(`http://localhost:5000/orders/${id}`);
+  const response = await request.json();
+  return response;
+};
 
-export { getOrders };
+export { getOrders, getOrdersIds };
