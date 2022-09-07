@@ -6,8 +6,8 @@ import Home from "./pages/Home";
 const App = () => {
     return (
         <BrowserRouter>
+            <Header />
             <Container>
-                <Header />
                 <Routes>
                     <Route path={"/"} element={<Home />} />
                 </Routes>
