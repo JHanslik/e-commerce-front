@@ -1,23 +1,16 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ countArticles }) => {
     const [hidden, setHidden] = useState(true);
     const [numberOfProducts, setNumberOfProducts] = useState(0);
 
     useEffect(() => {
-        fetchProducts();
-        // eslint-disable-next-line
-    }, []);
+        setNumberOfProducts(countArticles);
+    }, [countArticles]);
 
     const handleHiddenClick = () => {
         setHidden(!hidden);
-    };
-
-    const fetchProducts = async () => {
-        let ids = localStorage.getItem("basketProducts");
-        let basketProducts = JSON.parse(ids);
-        setNumberOfProducts(basketProducts.length);
     };
 
     return (

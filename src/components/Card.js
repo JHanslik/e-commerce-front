@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Card = ({ article }) => {
+const Card = ({ article, setCountArticles }) => {
     const [ids, setIds] = useState([]);
 
     useEffect(() => {
@@ -23,11 +23,14 @@ const Card = ({ article }) => {
             stringifiedBasketProducts = JSON.stringify(basketProducts);
             localStorage.setItem("basketProducts", stringifiedBasketProducts);
             setIds(basketProducts);
+            setCountArticles(basketProducts.length);
         } else {
             basketProducts.splice(basketProducts.indexOf(article.id), 1);
             let stringifiedBasketProducts = JSON.stringify(basketProducts);
             localStorage.setItem("basketProducts", stringifiedBasketProducts);
             setIds(basketProducts);
+            setCountArticles(basketProducts.length);
+
             // if (removeFunctionRender) {
             //     removeFunctionRender(article.id);
             // }
