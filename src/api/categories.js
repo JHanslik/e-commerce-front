@@ -3,4 +3,6 @@ const getCategories = async () => {
   const response = await request.json();
   return response;
 };
+
+
 export { getCategories };

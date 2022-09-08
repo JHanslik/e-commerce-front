@@ -38,6 +38,7 @@ const Order = () => {
         clonedArticles.splice(clonedArticles.indexOf(article), 1);
         setArticles(clonedArticles);
     };
+    
     const sumTotalPrice = () => {
         let prices = 0;
         articles.forEach((article) => (prices += article.price));
