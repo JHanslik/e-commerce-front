@@ -4,23 +4,26 @@ import { getArticle } from "../api/articles";
 import { getCategories } from "../api/categories";
 import Grid from "../components/Grid";
 import Layout from "../components/Layout";
-import Select from "../components/Select"
+import Select from "../components/Select";
 
 const Home = () => {
     const [articles, setArticles] = useState([]);
     const [countArticles, setCountArticles] = useState(0);
-    const [options, setOptions] = useState([])
-    const [category, setCategory] = useState('')
-
+    const [options, setOptions] = useState([]);
+    const [category, setCategory] = useState("");
 
     useEffect(() => {
         fetchArticle();
         fetchProducts();
-        fetchdateBis()
+        fetchdateBis();
     }, []);
 
+    useEffect(() => {
+        fetchArticle();
+    }, [category]);
+
     const fetchArticle = async () => {
-        const data = await getArticle();
+        const data = await getArticle(category);
         setArticles(data);
     };
 
@@ -31,27 +34,31 @@ const Home = () => {
     };
 
     const handleChangeCat = (e) => {
-      setCategory(e.target.value)
-  }
+        setCategory(e.target.value);
+    };
 
-  const fetchdateBis = async () => {
-    const data = await getCategories()
-    console.log(data);
+    const fetchdateBis = async () => {
+        const data = await getCategories();
+        console.log(data);
 
-    let optionsMap = data.map((r) => {
-        return {
-            value: r.name, 
-            text: r.name
-        }
-    })
+        let optionsMap = data.map((r) => {
+            return {
+                value: r.id,
+                text: r.name,
+            };
+        });
 
-    setOptions(optionsMap);
-
-}
+        setOptions(optionsMap);
+    };
 
     return (
         <Layout countArticles={countArticles}>
-            <Select label="Categories" handleChange={handleChangeCat} options={options} value={category} />
+            <Select
+                label="Categories"
+                handleChange={handleChangeCat}
+                options={options}
+                value={category}
+            />
             <Grid>
                 {articles.map((article) => {
                     return (

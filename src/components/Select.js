@@ -15,7 +15,7 @@ const Select = ({ label, handleChange, options, value }) => {
                     <select
                         onChange={handleChange}
                         value={value}
-                        className=" border bg-gray-800 text-gray-200 border-slate-300 rounded-lg w-12/12 p-1 focus:outline-none focus:border-gray-100 focus:ring-1 focus:ring-gray-400"
+                        className="drop-shadow-lg border bg-gray-800 text-gray-200 border-slate-300 rounded-lg w-12/12 p-1 focus:outline-none focus:border-gray-100 focus:ring-1 focus:ring-gray-400"
                         name="cities"
                         id="city-select"
                     >
