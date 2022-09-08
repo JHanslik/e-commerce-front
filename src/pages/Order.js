@@ -49,12 +49,13 @@ const Order = () => {
 
     return (
         <Layout countArticles={countArticles}>
-            <section>
-                <h2 className="text-center">
+            <section className="flex justify-center items-center gap-20 p-11">
+                <h2 className="text-center text-xl rounded-lg py-2 px-4 bg-gray-300 text-gray-800 drop-shadow-lg">
                     Total Price : {totalPrice / 100} $
                 </h2>
+                <button className="inline-flex drop-shadow-lg items-center text-lg rounded-lg py-2 px-4 bg-gray-800 text-white hover:bg-blue-700 hover:drop-shadow-none">Confirm your order</button>
             </section>
-            <Grid>
+            <div className="box ">
                 {articles.map((article) => {
                     return (
                         <Card
@@ -62,10 +63,10 @@ const Order = () => {
                             article={article}
                             setCountArticles={setCountArticles}
                             removeFunctionRender={handleClickRemoveFavorite}
-                        />
-                    );
-                })}
-            </Grid>
+                            />
+                            );
+                        })}
+            </div>
         </Layout>
     );
 };

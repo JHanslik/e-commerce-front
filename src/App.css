@@ -2,3 +2,13 @@
     text-decoration: none;
     color: whitesmoke;
 }
+
+
+.box{
+    display: grid;
+    gap: 40px;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    
+}
