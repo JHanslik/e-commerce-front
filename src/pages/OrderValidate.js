@@ -35,6 +35,10 @@ const Product = () => {
                     <p className="mb-3 font-normal  text-gray-400">
                         Customer E-mail : {order.customerEmail}
                     </p>
+                    <p className="mb-3 font-normal  text-gray-400">
+                        You lost : {order.totalPrice / 100} $ ! <br />
+                        No refund
+                    </p>
                 </div>
             </div>
         </Layout>
