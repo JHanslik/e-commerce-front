@@ -7,9 +7,9 @@ const ProductArticle = ({ product }) => {
                 href="#"
                 className="flex  bg-gray-800 rounded-lg border shadow-xl "
             >
-                <div className="w-[650px] ">
+                <div className="w-[750px] ">
                     <img
-                        className="w-9/12 object-cover rounded-t-lg md:h-auto md:rounded-none md:rounded-l-lg"
+                        className="w-auto object-cover rounded-t-lg md:h-auto md:rounded-none md:rounded-l-lg"
                         src={product.image}
                         alt=""
                     />
