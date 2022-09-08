@@ -63,13 +63,13 @@ const Order = () => {
         const response = await request.json();
 
         if (request.status === 201) {
-            console.log(totalPrice);
             let ids = localStorage.getItem("basketProducts");
             let basketProducts = JSON.parse(ids);
             basketProducts = [];
             let stringifiedBasketProducts = JSON.stringify(basketProducts);
             localStorage.setItem("basketProducts", stringifiedBasketProducts);
-            navigate("../");
+            console.log(response.id);
+            navigate(`../orders/${response.id}`);
         } else {
             console.log(response);
             setErrors(response);
