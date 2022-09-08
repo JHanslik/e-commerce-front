@@ -5,6 +5,8 @@ import Categories from "./pages/Categories";
 import Home from "./pages/Home";
 import Order from "./pages/Order";
 import Product from "./pages/Product";
+import OrderValidate from "./pages/OrderValidate";
+
 import "./App.css";
 
 const App = () => {
@@ -15,6 +17,7 @@ const App = () => {
                 <Route path={"/products/:id"} element={<Product />} />
                 <Route path={"/categories"} element={<Categories />} />
                 <Route path={"/orders"} element={<Order />} />
+                <Route path={"/validation"} element={<OrderValidate />} />
             </Routes>
         </BrowserRouter>
     );
