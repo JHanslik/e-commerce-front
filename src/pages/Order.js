@@ -38,7 +38,7 @@ const Order = () => {
         clonedArticles.splice(clonedArticles.indexOf(article), 1);
         setArticles(clonedArticles);
     };
-    
+
     const sumTotalPrice = () => {
         let prices = 0;
         articles.forEach((article) => (prices += article.price));
@@ -49,7 +49,11 @@ const Order = () => {
 
     return (
         <Layout countArticles={countArticles}>
-            <h2 className="text-center">Total Price : {totalPrice / 100} $</h2>
+            <section>
+                <h2 className="text-center">
+                    Total Price : {totalPrice / 100} $
+                </h2>
+            </section>
             <Grid>
                 {articles.map((article) => {
                     return (
