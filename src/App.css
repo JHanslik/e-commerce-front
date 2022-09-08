@@ -3,12 +3,24 @@
     color: whitesmoke;
 }
 
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #1f2937 #e5e7eb;
+}
 
-.box{
-    display: grid;
-    gap: 40px;
-    display: flex;
-    flex-direction: row;
-    overflow: scroll;
-    
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #e5e7eb;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #1f2937;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
 }

@@ -38,17 +38,17 @@ const Card = ({ article, setCountArticles, removeFunctionRender }) => {
     };
 
     return (
-        <div className="w-[300px]  max-h-[60vh]  shadow-md bg-gray-800 border-gray-700 rounded-lg">
+        <div className="h-[60vh] min-w-[280px] shadow-md bg-gray-800 border-gray-700 rounded-lg">
             <img
-                className="h-[300px] w-[300px] rounded-t-lg object-cover"
+                className="h-[65%] w-[300px] rounded-t-lg object-cover"
                 src={article.image}
                 alt=""
             />
-            <div className="p-5">
+            <div className="p-3 h-[35%]">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight  text-white">
                     {article.name}
                 </h5>
-               
+
                 <p className="mb-3 font-normal  text-gray-400">
                     {article.price / 100} $
                 </p>

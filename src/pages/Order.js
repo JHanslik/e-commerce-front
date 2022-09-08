@@ -53,9 +53,11 @@ const Order = () => {
                 <h2 className="text-center text-xl rounded-lg py-2 px-4 bg-gray-300 text-gray-800 drop-shadow-lg">
                     Total Price : {totalPrice / 100} $
                 </h2>
-                <button className="inline-flex drop-shadow-lg items-center text-lg rounded-lg py-2 px-4 bg-gray-800 text-white hover:bg-blue-700 hover:drop-shadow-none">Confirm your order</button>
+                <button className="inline-flex drop-shadow-lg items-center text-lg rounded-lg py-2 px-4 bg-gray-800 text-white hover:bg-blue-700 hover:drop-shadow-none">
+                    Confirm your order
+                </button>
             </section>
-            <div className="box ">
+            <div className="flex gap-[40px] overflow-x-scroll">
                 {articles.map((article) => {
                     return (
                         <Card
@@ -63,9 +65,9 @@ const Order = () => {
                             article={article}
                             setCountArticles={setCountArticles}
                             removeFunctionRender={handleClickRemoveFavorite}
-                            />
-                            );
-                        })}
+                        />
+                    );
+                })}
             </div>
         </Layout>
     );
